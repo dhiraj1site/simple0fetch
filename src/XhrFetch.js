@@ -1,8 +1,13 @@
 import {serialize, resolveData, setXhrHeaders} from './helpers.js';
 
-const xhrFetch = (url, method, body, queryParams, headers = {}, json = false) => {
+const xhrFetch = (url, method, body, queryParams, headers = {}, json = false, type = '') => {
     return new Promise((resolve, reject) => {
-        const data = resolveData(body);
+        if(type == 'file') {
+            var data = resolveData(body);
+        }
+        else {
+            data = JSON.stringify(body);
+        }
         queryParams = serialize(queryParams);
         var xhr = new XMLHttpRequest();        
         xhr.addEventListener("load", function () {

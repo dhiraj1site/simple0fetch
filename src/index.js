@@ -5,23 +5,23 @@ const XHRMODE = typeof XMLHttpRequest === 'function';
 const useMode = XHRMODE ? xhrFetch : nativeFetch;
 
 simpleFetch.get = (object)  => {
-  const {url ,body, query, headers} = object;
-  return useMode(url, "GET", body, query, headers);
+  const {url ,body, query, headers, type} = object;
+  return useMode(url, "GET", body, query, headers, type);
 }
 
 simpleFetch.post = (object)  => {
-  const {url ,body, query, headers} = object;
-  return useMode(url, "POST", body, query, headers);
+  const {url ,body, query, headers, type} = object;
+  return useMode(url, "POST", body, query, headers, type);
 }
 
 simpleFetch.put = (object)  => {
-  const {url ,body, query, headers} = object;
-  return useMode(url, "PUT", body, query, headers);
+  const {url ,body, query, headers, type} = object;
+  return useMode(url, "PUT", body, query, headers, type);
 }
 
 simpleFetch.delete = (object)  => {
-  const {url ,body, query, headers} = object;
-  return useMode(url, "DELETE", body, query, headers);
+  const {url ,body, query, headers, type} = object;
+  return useMode(url, "DELETE", body, query, headers, type);
 }
 
 
