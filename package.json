@@ -1,6 +1,6 @@
 {
   "name": "simple0fetch",
-  "version": "1.0.0",
+  "version": "1.1.1",
   "description": "simple 0 dependency fetch urls for both xhr and native http",
   "author": "dhiraj1site",
   "license": "MIT",

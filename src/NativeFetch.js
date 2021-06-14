@@ -3,15 +3,15 @@ import { URL } from 'url';
 import {serialize} from './helpers.js';
 
 
-const nativeFetch = (url, method, queryParams = {}, postData = {}, json = false) => {
-
+const nativeFetch = (object) => {
+const {url ,body, query, headers, type, json, method} = object;
 return new Promise((resolve, reject)=> {
   if(method == 'POST') {
-    postData = JSON.stringify(postData);
+    postData = JSON.stringify(body);
   }
-  queryParams = serialize(queryParams);
-  url = queryParams ?  url + '?' + queryParams : url;
-  var options = new URL(url);
+  var queryParams = serialize(query);
+  var _url = queryParams ?  url + '?' + queryParams : url;
+  var options = new URL(_url);
   options.method = method;
   
   var req = http.request(options, function (res) {
